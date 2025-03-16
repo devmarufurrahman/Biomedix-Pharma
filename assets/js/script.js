@@ -7,28 +7,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Sticky navbar
-    const navbar = document.getElementById('navbar');
+    const navbar = document.getElementById("navbar");
     const sticky = navbar.offsetTop;
-    
-    window.onscroll = function() {
-        if (window.pageYOffset > sticky) {
-            navbar.classList.add('navbar-fixed');
-        } else {
-            navbar.classList.remove('navbar-fixed');
-        }
+
+    window.onscroll = function () {
+      if (window.pageYOffset > sticky) {
+        navbar.classList.add("navbar-fixed");
+      } else {
+        navbar.classList.remove("navbar-fixed");
+      }
     };
-    
+
     // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const closeMenu = document.getElementById('close-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    menuToggle.addEventListener('click', function() {
-        mobileMenu.classList.add('open');
+    const menuToggle = document.getElementById("menu-toggle");
+    const closeMenu = document.getElementById("close-menu");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", function () {
+      mobileMenu.classList.add("open");
     });
-    
-    closeMenu.addEventListener('click', function() {
-        mobileMenu.classList.remove('open');
+
+    closeMenu.addEventListener("click", function () {
+      mobileMenu.classList.remove("open");
     });
 
     // Counter animation
@@ -68,19 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Cursor glow effect
-    const cursorGlow = document.getElementById("cursor-glow");
+    // // Cursor glow effect
+    // const cursorGlow = document.getElementById("cursor-glow");
 
-    document.addEventListener("mousemove", function (e) {
-      cursorGlow.style.display = "block";
-      cursorGlow.style.left = e.clientX + "px";
-      cursorGlow.style.top = e.clientY + "px";
-    });
+    // document.addEventListener("mousemove", function (e) {
+    //   cursorGlow.style.display = "block";
+    //   cursorGlow.style.left = e.clientX + "px";
+    //   cursorGlow.style.top = e.clientY + "px";
+    // });
 
-    // Hide cursor glow when mouse leaves the window
-    document.addEventListener("mouseleave", function () {
-      cursorGlow.style.display = "none";
-    });
+    // // Hide cursor glow when mouse leaves the window
+    // document.addEventListener("mouseleave", function () {
+    //   cursorGlow.style.display = "none";
+    // });
 
     // Card 3D effect
     const cards = document.querySelectorAll(".card-3d");
