@@ -18,18 +18,39 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
 
-    // Mobile menu toggle
-    const menuToggle = document.getElementById("menu-toggle");
-    const closeMenu = document.getElementById("close-menu");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    menuToggle.addEventListener("click", function () {
-      mobileMenu.classList.add("open");
-    });
-
-    closeMenu.addEventListener("click", function () {
-      mobileMenu.classList.remove("open");
-    });
+     // Mobile Menu Toggle
+     const menuToggle = document.getElementById("menu-toggle");
+     const closeMenu = document.getElementById("close-menu");
+     const mobileMenu = document.getElementById("mobile-menu");
+ 
+     // Toggle menu function
+     function toggleMenu() {
+         if (mobileMenu.classList.contains("open")) {
+             mobileMenu.classList.remove("open");
+             document.body.style.overflow = "auto"; // Enable scrolling
+         } else {
+             mobileMenu.classList.add("open");
+             document.body.style.overflow = "hidden"; // Disable scrolling
+         }
+     }
+ 
+     // Open and close menu on button click
+     menuToggle.addEventListener("click", toggleMenu);
+     closeMenu.addEventListener("click", toggleMenu);
+ 
+     // Close menu when clicking outside
+     document.addEventListener("click", function (event) {
+         if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+             mobileMenu.classList.remove("open");
+             document.body.style.overflow = "auto";
+         }
+     });
+ 
+     // Prevent menu from closing when clicking inside it
+     mobileMenu.addEventListener("click", function (event) {
+         event.stopPropagation();
+     });
+     
 
     // Counter animation
     const counters = document.querySelectorAll(".counter-value");
