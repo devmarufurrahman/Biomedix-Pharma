@@ -68,20 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // // Cursor glow effect
-    // const cursorGlow = document.getElementById("cursor-glow");
-
-    // document.addEventListener("mousemove", function (e) {
-    //   cursorGlow.style.display = "block";
-    //   cursorGlow.style.left = e.clientX + "px";
-    //   cursorGlow.style.top = e.clientY + "px";
-    // });
-
-    // // Hide cursor glow when mouse leaves the window
-    // document.addEventListener("mouseleave", function () {
-    //   cursorGlow.style.display = "none";
-    // });
-
     // Card 3D effect
     const cards = document.querySelectorAll(".card-3d");
 
@@ -105,4 +91,44 @@ document.addEventListener("DOMContentLoaded", function () {
           "perspective(1000px) rotateX(0) rotateY(0) translateZ(0)";
       });
     });
+
+    // for about page 
+    
+            // Progress bar animation
+            const progressBars = document.querySelectorAll('.progress-fill');
+            
+            const animateProgressBars = () => {
+                progressBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                });
+            };
+            
+            // Scroll reveal animation
+            const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+            const imageRevealElements = document.querySelectorAll('.image-reveal');
+            
+            const scrollRevealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        scrollRevealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            scrollRevealElements.forEach(element => {
+                scrollRevealObserver.observe(element);
+            });
+            
+            imageRevealElements.forEach(element => {
+                scrollRevealObserver.observe(element);
+            });
+            
+            // Call animations
+            animateProgressBars();
+            
+
   });
